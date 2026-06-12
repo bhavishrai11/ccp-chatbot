@@ -55,9 +55,9 @@ if uploaded_file and st.session_state.vector_store is None:
             text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
             chunks = text_splitter.split_documents(docs)
             
-   # 3. Generate embeddings and store them in local FAISS
+# 3. Generate embeddings and store them in local FAISS
             embeddings = GoogleGenerativeAIEmbeddings(
-                model="models/embedding-001", 
+                model="models/gemini-embedding-001", 
                 google_api_key=gemini_api_key
             )
             st.session_state.vector_store = FAISS.from_documents(chunks, embeddings)
